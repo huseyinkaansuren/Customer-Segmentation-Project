@@ -50,7 +50,7 @@ with tab_upload:
     if uploaded_file is not None:
         df_ = pd.read_csv(uploaded_file)
         df = df_.copy()
-        st.session_state.data = df
+
 
 #Tab Data----------------------------------
 tab_data.write("In this tab you can look glimpse of data. If data has a problem like collecting all values in a single column you can fix it here. If you still have a problem please wait an update.")
@@ -63,7 +63,8 @@ if split_data_button:
     df = main.split_data(df)
     st.session_state.data = df
     tab_data.write(st.session_state.data.head())
-
+else:
+    st.session_state.data = df
 
 #Tab Select Columns--------------------------------
 tab_sel_columns.write("In this tab please select columns that need for segmentation")
