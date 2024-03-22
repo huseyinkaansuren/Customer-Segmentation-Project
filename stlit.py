@@ -110,7 +110,7 @@ if st.session_state.disabled == True:
     tab_seg_left, tab_seg_right = tab_segment_analys.columns(2)
     tab_seg_left.write(st.session_state.rfm[["segment","recency_days","frequency"]].groupby("segment").agg(["mean", "count"]))
 
-    st.session_state.input = tab_seg_right.text_input("Enter Customer ID you want to check", key = "input", on_change=submit)
+    tab_seg_right.text_input("Enter Customer ID you want to check", key = "input", on_change=submit)
 
 try:
     #TAB EXTRACT CUSTOMERS
