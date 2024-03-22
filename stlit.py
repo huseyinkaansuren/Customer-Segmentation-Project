@@ -46,7 +46,7 @@ tab_upload, tab_data, tab_sel_columns , tab_segment_analys, tab_extract_cust = s
 try:
     with tab_upload:
         uploaded_file = st.file_uploader("Choose a CSV file", type=['csv'], accept_multiple_files=False)
-        tab_upload.write("After Uploading File Error In Below Will Disappear")
+        #tab_upload.write("After Uploading File Error In Below Will Disappear")
         if uploaded_file is not None:
             df_ = pd.read_csv(uploaded_file)
             df = df_.copy()
