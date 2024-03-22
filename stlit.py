@@ -33,8 +33,6 @@ def preprocessing(dataframe, id,frequency, recency, date_day):
 
 
 def submit():
-    st.write(st.session_state.input)
-    st.write((st.session_state.rfm[customer_Id] == st.session_state.id_input).sum() > 0)
     st.session_state.id_input = st.session_state.input
     if (st.session_state.rfm[customer_Id] == st.session_state.id_input).sum() > 0:
         tab_seg_right.write(st.session_state.rfm[st.session_state.rfm[customer_Id] == st.session_state.id_input])
