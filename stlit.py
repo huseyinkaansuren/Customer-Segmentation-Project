@@ -64,10 +64,7 @@ if split_data_button:
     st.session_state.data = df
     tab_data.write(st.session_state.data.head())
 else:
-    try:
-        st.session_state.data = df
-    except:
-        st.exception("Waiting For File")
+    st.session_state.data = df
 
 #Tab Select Columns--------------------------------
 tab_sel_columns.write("In this tab please select columns that need for segmentation")
