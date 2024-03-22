@@ -34,7 +34,7 @@ def preprocessing(dataframe, id,frequency, recency, date_day):
 
 def submit():
     st.session_state.id_input = st.session_state.input
-    st.write(st.session_state.rfm[customer_Id])
+
     if (st.session_state.rfm[customer_Id] == st.session_state.id_input).sum() > 0:
         tab_seg_right.write(st.session_state.rfm[st.session_state.rfm[customer_Id] == st.session_state.id_input])
     else:
@@ -108,7 +108,7 @@ if st.session_state.seg_button:
 if st.session_state.disabled == True:
     tab_seg_left, tab_seg_right = tab_segment_analys.columns(2)
     tab_seg_left.write(st.session_state.rfm[["segment","recency_days","frequency"]].groupby("segment").agg(["mean", "count"]))
-
+    st.write(st.session_state.rfm[customer_Id])
     tab_seg_right.text_input("Enter Customer ID you want to check", key = "input", on_change=submit)
 
 try:
