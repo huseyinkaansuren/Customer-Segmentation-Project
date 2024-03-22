@@ -120,7 +120,7 @@ try:
 
             csv_data=spec_customers_idx.to_csv()
 
-            tab_extract_cust.download_button(label = "Extract These Segment Customers", data=csv_data, file_name =  "customers.csv")
+        tab_extract_cust.download_button(label = "Extract These Segment Customers", data=csv_data, file_name =  "customers.csv")
 
     except:
         pass
