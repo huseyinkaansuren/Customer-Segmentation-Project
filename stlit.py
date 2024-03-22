@@ -118,7 +118,8 @@ try:
         spec_customers_idx.to_csv("spec_customers_idx.csv")
 
         extract_button = tab_extract_cust.button(label = "Extract These Segment Customers", data=spec_customers_idx, file_name="customers.csv", mime="text/csv")
-
+        if extract_button:
+            st.write("ha")
     except:
         pass
 except:
