@@ -38,7 +38,7 @@ def submit():
     if (st.session_state.rfm[customer_Id] == st.session_state.id_input).sum() > 0:
         tab_seg_right.write(st.session_state.rfm[st.session_state.rfm[customer_Id] == st.session_state.id_input])
     else:
-        tab_seg_right.write("Couldn't Find This Customer")
+        tab_seg_right.write("Couldn't Find This Customer. Please Try Again.")
 
 
 
