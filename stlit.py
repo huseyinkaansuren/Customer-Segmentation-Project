@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import datetime as dt
-
 import main
-from main import *
 
 st.set_page_config(layout="wide")
 st.markdown("""<h1 style = 'text-align:center;'>Customer Segmentation</h1>""",unsafe_allow_html=True)
