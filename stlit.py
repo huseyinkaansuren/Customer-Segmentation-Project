@@ -117,7 +117,7 @@ try:
         spec_customers_idx = pd.Series(spec_customers.index)
         spec_customers_idx.to_csv("spec_customers_idx.csv")
 
-        extract_button = tab_extract_cust.button(label = "Extract These Segment Customers", data=spec_customers_idx, file_name="customers.csv", mime="text/csv")
+        extract_button = tab_extract_cust.button(label = "Extract These Segment Customers")
         if extract_button:
             st.write("ha")
     except:
