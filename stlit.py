@@ -6,12 +6,9 @@ import main
 st.set_page_config(layout="wide")
 st.markdown("""<h1 style = 'text-align:center;'>Customer Segmentation</h1>""",unsafe_allow_html=True)
 
-
-
 def preprocessing(dataframe, id,frequency, recency, date_day):
     st.session_state.disabled = False
     dataframe.dropna(inplace=True)
-    dataframe[id] = dataframe[id].astype(int)
 
     dataframe[frequency] = st.session_state.data[frequency].astype(int)
     dataframe["frequency"] = st.session_state.data[frequency].sum(axis=1)
