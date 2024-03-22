@@ -114,11 +114,13 @@ try:
         #TAB EXTRACT CUSTOMERS
 
         cust_segments = tab_extract_cust.multiselect("Select Segments You want to extract:", st.session_state.rfm["segment"].unique())
-        spec_customers = st.session_state.rfm[st.session_state.rfm["segment"].isin(cust_segments)]
-        spec_customers_idx = pd.Series(spec_customers.index)
-        spec_customers_idx.to_csv("spec_customers_idx.csv")
 
-        extract_button = tab_extract_cust.button("Extract These Segment Customers", data = spec_customers_idx, file_name = "customers.csv", mime="text/csv")
+        extract_button = tab_extract_cust.button("Extract These Segment Customers")
+
+        if extract_button:
+            spec_customers = st.session_state.rfm[st.session_state.rfm["segment"].isin(cust_segments)]
+            spec_customers_idx = pd.Series(spec_customers.index)
+            spec_customers_idx.to_csv("spec_customers_idx.csv")
 
     except:
         pass
