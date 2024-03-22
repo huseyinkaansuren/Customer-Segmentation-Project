@@ -100,9 +100,11 @@ if st.session_state.disabled == True:
     tab_seg_left, tab_seg_right = tab_segment_analys.columns(2)
     tab_seg_left.write(st.session_state.rfm[["segment","recency_days","frequency"]].groupby("segment").agg(["mean", "count"]))
     def submit():
-        st.write(st.session_state.input)
         st.session_state.id_input = st.session_state.input
-        tab_seg_right.write(st.session_state.rfm[st.session_state.rfm["ID"] == st.session_state.id_input])
+        if st.session_state.rfm[st.session_state.rfm["ID"] == st.session_state.id_input]:
+            tab_seg_right.write(st.session_state.rfm[st.session_state.rfm["ID"] == st.session_state.id_input])
+        else:
+            tab_seg_right.write("Couldn't Find This Customer")
 
     tab_seg_right.text_input("Enter Customer ID you want to check", key = "input", on_change=submit)
 
