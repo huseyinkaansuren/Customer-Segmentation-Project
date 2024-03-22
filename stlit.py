@@ -121,7 +121,7 @@ try:
 
             with open(spec_customers_idx, 'rb') as f:
                 csv_data = f.read()
-            tab_extract_cust.button(label = "Extract These Segment Customers", data=csv_data, file_name="customers.csv", mime="text/csv")
+            extract_button = tab_extract_cust.button(label = "Extract These Segment Customers", data=csv_data, file_name="customers.csv", mime="text/csv")
 
 
     except:
