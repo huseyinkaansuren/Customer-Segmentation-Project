@@ -23,4 +23,5 @@ def segmentation(rfm):
     }
 
     rfm["segment"] = rfm["RFM_Score"].replace(seg_map, regex=True)
+    rfm = rfm.reset_index()
     return rfm
