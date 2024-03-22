@@ -101,7 +101,7 @@ if st.session_state.disabled == True:
     tab_seg_left.write(st.session_state.rfm[["segment","recency_days","frequency"]].groupby("segment").agg(["mean", "count"]))
     def submit():
         st.session_state.id_input = st.session_state.input
-        if st.session_state.rfm[st.session_state.rfm["ID"] == st.session_state.id_input]:
+        if (st.session_state.rfm["ID"] == st.session_state.id_input).sum() > 0:
             tab_seg_right.write(st.session_state.rfm[st.session_state.rfm["ID"] == st.session_state.id_input])
         else:
             tab_seg_right.write("Couldn't Find This Customer")
