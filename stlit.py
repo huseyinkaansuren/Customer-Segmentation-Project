@@ -55,7 +55,8 @@ if split_data_button:
     df = main.split_data(df)
     st.session_state.data = df
     tab_data.write(st.session_state.data.head())
-
+else:
+    st.session_state.data = df
 
 
 #Tab Select Columns--------------------------------
