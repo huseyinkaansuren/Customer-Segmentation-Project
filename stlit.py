@@ -26,7 +26,7 @@ def preprocessing(dataframe, id,frequency, recency, date_day):
                                          "frequency": lambda num: num})
 
     rfm["recency_score"] = pd.qcut(rfm["recency_days"], 5, labels=[5,4,3,2,1]).astype(int)
-    rfm["frequency_score"] = pd.qcut(rfm["frequency"], 5, labels = [1,2,3,4,5]).astype(int)
+    rfm["frequency_score"] = pd.qcut(rfm["frequency"].rank(method="first"), 5, labels = [1,2,3,4,5]).astype(int)
     rfm["RFM_Score"] = (rfm["recency_score"].astype(str) + rfm["frequency_score"].astype(str))
 
     return rfm
