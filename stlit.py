@@ -44,7 +44,10 @@ with tab_upload:
 
 #Tab Data----------------------------------
 tab_data.write("In this tab you can look glimpse of data. If data has a problem like collecting all values in a single column you can fix it here. If you still have a problem please wait an update.")
-tab_data.write(df.head())
+try:
+    tab_data.write(df.head())
+except:
+    pass
 split_data_button = tab_data.button("If data has problem with values click this")
 if split_data_button:
     df = main.split_data(df)
